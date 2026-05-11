@@ -1,0 +1,47 @@
+services:
+  portfolio-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: yahya-portfolio-web
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+
+  # Phase 2 note:
+  # This app can call a Qwen LoRA inference server through QWEN_API_URL.
+  # Keep the model server separate because Qwen LoRA weights are large and may need GPU runtime.
+  #
+  # Example A — OpenAI-compatible vLLM server:
+  # qwen-lora:
+  #   image: vllm/vllm-openai:latest
+  #   container_name: qwen-lora
+  #   runtime: nvidia
+  #   ports:
+  #     - "8000:8000"
+  #   volumes:
+  #     - ./models:/models
+  #   command: >
+  #     --model /models/Qwen-base
+  #     --enable-lora
+  #     --lora-modules qwen-resume-lora-v2=/models/qwen-resume-lora-v2.zip
+  #     --host 0.0.0.0
+  #     --port 8000
+  #
+  # Example B — Ollama server using an already-created LoRA/merged model:
+  # ollama:
+  #   image: ollama/ollama:latest
+  #   container_name: ollama
+  #   ports:
+  #     - "11434:11434"
+  #   volumes:
+  #     - ollama:/root/.ollama
+
+# volumes:
+#   ollama:

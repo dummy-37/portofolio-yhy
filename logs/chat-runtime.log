@@ -1,0 +1,10 @@
+{"timestamp":"2026-05-11T08:09:49.559Z","provider":"local-fallback","guardrail":"local-fallback","sources":["Skills"],"question":"What tools and technologies does Yahya use?"}
+{"timestamp":"2026-05-11T08:28:45.242Z","provider":"local-fallback","guardrail":"local-fallback","sources":["Profile","Projects","Experience"],"question":"halo, siapa yahya?"}
+{"timestamp":"2026-05-11T08:28:54.297Z","provider":"local-fallback","guardrail":"local-fallback","sources":["Profile","Projects","Experience"],"question":"siapa yahya?"}
+{"timestamp":"2026-05-11T08:29:04.595Z","provider":"local-fallback","guardrail":"local-fallback","sources":["Skills"],"question":"skill yang dimiliki"}
+{"timestamp":"2026-05-11T08:29:12.387Z","provider":"local-fallback","guardrail":"local-fallback","sources":["Profile","Projects","Experience"],"question":"who is yahya?"}
+{"timestamp":"2026-05-11T09:06:37.288Z","provider":"local-fallback","guardrail":"local-fallback","sources":["Experience"],"question":"What is Yahya recent experience?"}
+{"timestamp":"2026-05-11T09:27:44.160Z","provider":"local-fallback","guardrail":"local-fallback","sources":["Experience"],"question":"experience terbaru Yahya apa?"}
+{"timestamp":"2026-05-11T09:31:20.084Z","provider":"local-fallback","guardrail":"local-fallback","sources":["Profile","Projects","Experience"],"question":"siapa yahya?"}
+{"timestamp":"2026-05-11T09:31:28.124Z","provider":"local-fallback","guardrail":"local-fallback","sources":["Skills"],"question":"skill yang dimiliki yahya"}
+{"timestamp":"2026-05-11T09:31:35.718Z","provider":"local-fallback","guardrail":"local-fallback","sources":["Profile","Projects","Experience"],"question":"who is yahya"}

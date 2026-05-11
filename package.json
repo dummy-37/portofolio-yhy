@@ -1,0 +1,33 @@
+{
+  "name": "yahya-portfolio-qwen-next",
+  "version": "0.1.6",
+  "private": true,
+  "description": "Minimal elegant portfolio with tooltip detail text, particle background, Antigravity-inspired floating assistant, and Qwen LoRA-ready chatbot.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --max-warnings=0",
+    "phase:log": "node scripts/log-phase.mjs",
+    "chat:test": "node scripts/test-chat.mjs",
+    "chat:evaluate": "node scripts/evaluate-chat.mjs",
+    "typecheck": "tsc --noEmit",
+    "deploy:check": "node scripts/check-deployment-config.mjs",
+    "deploy:health": "node scripts/health-check.mjs",
+    "ci": "npm run deploy:check -- .env.production.example && npm run typecheck && npm run build",
+    "test:static": "node scripts/static-check.mjs"
+  },
+  "dependencies": {
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^15.0.0",
+    "typescript": "^5.6.0"
+  }
+}

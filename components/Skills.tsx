@@ -1,45 +1,54 @@
 import { Tooltip } from "@/components/Tooltip";
-import { profile } from "@/lib/portfolio-data";
+import { profile, skills } from "@/lib/portfolio-data";
 
-const skillGroups = [
+const capabilityGroups = [
   {
-    title: "Backend Engineering",
-    icon: "⚙️",
-    items: ["Python", "Django", "Flask", "PostgreSQL", "REST API", "Docker"],
-    detail: "Backend work covers API development, database-backed systems, deployment preparation, reporting, and maintenance for web products."
+    number: "01",
+    title: "Backend engineering",
+    detail: "API development, database-backed systems, deployment preparation, reporting, and maintenance for web products.",
+    items: skills.slice(0, 7)
   },
   {
-    title: "Data & AI Products",
-    icon: "🧠",
-    items: ["Data Warehouse", "Dashboard", "NLP", "Chatbot", "Qwen LoRA", "XGBoost"],
-    detail: "Data and AI product work includes dashboard workflows, chatbot/NLP features, notebook experimentation, and AI-assisted analytics experiences."
+    number: "02",
+    title: "Data, AI & delivery",
+    detail: "Dashboard workflows, chatbot and NLP features, notebook experimentation, data engineering, and production delivery.",
+    items: skills.slice(7)
   }
 ];
 
 export function Skills() {
   return (
-    <section className="section about-skills" id="about">
-      <article className="about-card compact-about-card">
-        <p className="eyebrow">About</p>
-        <div className="title-with-tooltip">
-          <h2>Backend-focused engineer with data product experience.</h2>
-          <Tooltip label="About detail" content={profile.about} />
-        </div>
-        <p>{profile.headline}</p>
-      </article>
+    <section className="section about-section" id="about" aria-labelledby="about-title">
+      <div className="section-heading">
+        <p className="section-kicker">01 / About</p>
+        <h2 id="about-title">A backend-first engineer with a product mindset.</h2>
+      </div>
 
-      <div className="skills-card compact-skills-card" id="skills">
-        {skillGroups.map((group) => (
-          <article className="skill-group compact-skill-group" key={group.title}>
-            <div className="card-title-row">
-              <h3><span aria-hidden="true">{group.icon}</span> {group.title}</h3>
-              <Tooltip label={`${group.title} detail`} content={group.detail} />
-            </div>
-            <div className="chip-list">
-              {group.items.map((item) => <span key={item}>{item}</span>)}
-            </div>
-          </article>
-        ))}
+      <div className="about-layout">
+        <div className="about-copy">
+          <p className="lead-copy">{profile.headline}</p>
+          <p>{profile.about}</p>
+        </div>
+
+        <div className="capability-list" aria-label="Core capabilities">
+          {capabilityGroups.map((group) => (
+            <article className="capability-group" key={group.title}>
+              <div className="capability-heading">
+                <span className="capability-number">{group.number}</span>
+                <h3>{group.title}</h3>
+                <Tooltip label={`${group.title} detail`} content={group.detail} />
+              </div>
+              <div className="skill-list">
+                {group.items.map((skill) => (
+                  <div className="skill-row" key={skill.name}>
+                    <strong>{skill.name}</strong>
+                    <span>{skill.tools.join(" · ")}</span>
+                  </div>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

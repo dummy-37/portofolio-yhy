@@ -10,12 +10,12 @@ const navItems = [
 
 export function Header() {
   return (
-    <header className="site-header" aria-label="Main navigation">
+    <header className="site-header">
       <a className="brand" href="#home" aria-label="Back to top">
         <span className="brand-mark">YF</span>
         <span className="brand-copy">
           <strong>{profile.name}</strong>
-          <small>Backend · Data · AI</small>
+          <small>Software engineer</small>
         </span>
       </a>
 
@@ -28,7 +28,7 @@ export function Header() {
       </nav>
 
       <a className="download-button" href={profile.resumeUrl} target="_blank" rel="noreferrer">
-        Download CV
+        Download CV <span aria-hidden="true">↗</span>
       </a>
     </header>
   );

@@ -1,45 +1,55 @@
 import { Tooltip } from "@/components/Tooltip";
-import { education, experiences } from "@/lib/portfolio-data";
-
-const recentExperiences = experiences.slice(0, 3);
+import { education, experiences, organisations } from "@/lib/portfolio-data";
 
 export function Resume() {
   return (
-    <section className="section resume-section" id="experience">
-      <div className="section-heading slim left">
-        <p className="eyebrow">Experience</p>
-        <h2>Recent timeline</h2>
+    <section className="section resume-section" id="experience" aria-labelledby="experience-title">
+      <div className="section-heading resume-heading">
+        <p className="section-kicker">03 / Experience</p>
+        <h2 id="experience-title">A timeline of building, maintaining, and learning.</h2>
       </div>
 
-      <div className="timeline compact-timeline">
-        {recentExperiences.map((item) => (
-          <article className="timeline-item compact-timeline-item" key={`${item.company}-${item.period}`}>
-            <time>{item.year}</time>
-            <div className="timeline-main">
+      <div className="experience-list">
+        {experiences.map((item) => (
+          <article className="experience-item" key={`${item.company}-${item.period}`}>
+            <div className="experience-date">
+              <time>{item.year}</time>
+              <span>{item.period}</span>
+            </div>
+            <div className="experience-main">
               <div className="card-title-row">
-                <h3>{item.title}</h3>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p className="company-text">{item.company}</p>
+                </div>
                 <Tooltip label={`${item.company} experience detail`} content={item.summary} />
               </div>
-              <p className="company-text compact-company-text">{item.company} · {item.period}</p>
               <p>{item.summary}</p>
             </div>
           </article>
         ))}
       </div>
 
-      <div className="education-card compact-education-card">
-        <div className="card-title-row">
-          <div>
-            <p className="eyebrow">Education</p>
-            {education.map((item) => (
-              <div key={item.title}>
-                <h3>{item.title}</h3>
-                <p>{item.institution} · {item.period}</p>
-              </div>
-            ))}
-          </div>
-          {education[0]?.detail ? <Tooltip label="Education detail" content={education[0].detail} /> : null}
-        </div>
+      <div className="resume-asides">
+        <section className="resume-panel" aria-labelledby="education-title">
+          <p className="section-kicker">Education</p>
+          <h3 id="education-title">Formal foundation</h3>
+          {education.map((item) => (
+            <div className="resume-detail" key={item.title}>
+              <strong>{item.title}</strong>
+              <span>{item.institution}</span>
+              <small>{item.period} · {item.detail}</small>
+            </div>
+          ))}
+        </section>
+
+        <section className="resume-panel" aria-labelledby="organisations-title">
+          <p className="section-kicker">Organisations</p>
+          <h3 id="organisations-title">Outside the deliverables</h3>
+          <ul className="organisation-list">
+            {organisations.map((organisation) => <li key={organisation}>{organisation}</li>)}
+          </ul>
+        </section>
       </div>
     </section>
   );

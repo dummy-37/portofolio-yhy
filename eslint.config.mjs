@@ -16,6 +16,7 @@ const eslintConfig = [
       "out/**",
       "dist/**",
       "coverage/**",
+      "__MACOSX/**",
       "next-env.d.ts"
     ]
   },

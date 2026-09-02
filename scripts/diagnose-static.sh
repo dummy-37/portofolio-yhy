@@ -8,8 +8,8 @@ echo ""
 echo "curl -I http://127.0.0.1:3000/_next/static/css/1a3d6d86449d2181.css"
 curl -sI http://127.0.0.1:3000/_next/static/css/1a3d6d86449d2181.css 2>&1 | head -5
 echo ""
-echo "curl -I http://127.0.0.1:3000/profile/yahya-firdaus.png"
-curl -sI http://127.0.0.1:3000/profile/yahya-firdaus.png 2>&1 | head -5
+echo "curl -I http://127.0.0.1:3000/ (health + profile image header)"
+curl -sI http://127.0.0.1:3000/ 2>&1 | head -5
 echo ""
 
 echo "=== 2. Test lewat proxy (port 80) ==="

@@ -12,7 +12,9 @@ export function Header() {
   return (
     <header className="site-header">
       <a className="brand" href="#home" aria-label="Back to top">
-        <span className="brand-mark">YF</span>
+        <span className="brand-mark">
+          <img src="/profile/yahya-firdaus.png" alt={profile.name} loading="lazy" decoding="async" />
+        </span>
         <span className="brand-copy">
           <strong>{profile.name}</strong>
           <small>Software engineer</small>

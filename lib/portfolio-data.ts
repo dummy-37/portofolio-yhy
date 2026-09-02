@@ -29,6 +29,8 @@ export const profile = {
   linkedin: "https://linkedin.com/in/yahyafirdaus",
   portfolio: "https://yahya-firdaus.github.io/portofolio/index.html",
   resumeUrl: "/resume/yahya-firdaus-resume.pdf",
+  picture:
+    "https://drive.google.com/uc?export=view&id=1Dn4pDUGSeyEaFpk5cqduEGlAQN9fBWzG",
   headline:
     "Backend-focused software engineer who builds reliable web systems, data pipelines, dashboards, chatbot products, NLP features, and AI-assisted analytics workflows.",
   about:

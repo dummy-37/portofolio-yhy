@@ -19,7 +19,12 @@ export function Hero() {
 
       <figure className="hero-portrait">
         <div className="portrait-frame">
-          <img src="/profile/yahya-firdaus.png" alt="Yahya Firdaus portrait" />
+          <img
+            src="/profile/yahya-firdaus.png"
+            alt="Yahya Firdaus portrait"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
         <figcaption>
           <span>Backend · Data · AI</span>

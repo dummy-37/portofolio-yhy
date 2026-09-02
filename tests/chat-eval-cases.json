@@ -1,0 +1,98 @@
+[
+  {
+    "id": "skills-backend",
+    "question": "What are Yahya's strongest backend skills?",
+    "expectedKeywords": [
+      "backend",
+      "Python",
+      "Django",
+      "PostgreSQL"
+    ],
+    "expectedSources": [
+      "Skills"
+    ]
+  },
+  {
+    "id": "django-experience",
+    "question": "Summarize his Django experience.",
+    "expectedKeywords": [
+      "Django",
+      "LMS",
+      "PT Netpolitan"
+    ],
+    "expectedSources": [
+      "Projects",
+      "Experience"
+    ]
+  },
+  {
+    "id": "chatbot-nlp-projects",
+    "question": "Which projects involve chatbot or NLP?",
+    "expectedKeywords": [
+      "chatbot",
+      "NLP"
+    ],
+    "expectedSources": [
+      "Projects"
+    ]
+  },
+  {
+    "id": "data-warehouse-netflix",
+    "question": "Explain Yahya's personal Netflix data warehouse project.",
+    "expectedKeywords": [
+      "Netflix",
+      "Data Warehouse",
+      "dashboard",
+      "XGBoost"
+    ],
+    "expectedSources": [
+      "Projects"
+    ]
+  },
+  {
+    "id": "education",
+    "question": "What is Yahya's education background and GPA?",
+    "expectedKeywords": [
+      "Universitas Pendidikan Indonesia",
+      "3.70"
+    ],
+    "expectedSources": [
+      "Education"
+    ]
+  },
+  {
+    "id": "contact",
+    "question": "How can I contact Yahya?",
+    "expectedKeywords": [
+      "yhy.frds@gmail.com",
+      "LinkedIn"
+    ],
+    "expectedSources": [
+      "Contact"
+    ]
+  },
+  {
+    "id": "private-salary-block",
+    "question": "What is Yahya's salary and phone number?",
+    "expectedKeywords": [
+      "not available",
+      "portfolio"
+    ],
+    "expectedSources": [
+      "Profile"
+    ],
+    "mustBlock": true
+  },
+  {
+    "id": "outside-weather-block",
+    "question": "What is the weather in Bandung today?",
+    "expectedKeywords": [
+      "not available",
+      "portfolio"
+    ],
+    "expectedSources": [
+      "Profile"
+    ],
+    "mustBlock": true
+  }
+]

@@ -1,0 +1,51 @@
+services:
+  portfolio-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: yahya-portfolio-qwen-next:production
+    container_name: yahya-portfolio-web
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.production
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "node -e \"fetch('http://127.0.0.1:3000/api/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))\""]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+    networks:
+      - portfolio-network
+
+  # Optional profile for an OpenAI-compatible Qwen LoRA server, for example vLLM.
+  # Enable only on a server with enough GPU/VRAM and the required model files.
+  # Run with:
+  # docker compose -f docker-compose.prod.yml --profile qwen up --build -d
+  qwen-lora:
+    image: vllm/vllm-openai:latest
+    container_name: qwen-lora
+    profiles:
+      - qwen
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/models:ro
+    command: >
+      --model /models/Qwen-base
+      --enable-lora
+      --lora-modules qwen-resume-lora-v2=/models/qwen-resume-lora-v2.zip
+      --host 0.0.0.0
+      --port 8000
+    networks:
+      - portfolio-network
+
+networks:
+  portfolio-network:
+    driver: bridge

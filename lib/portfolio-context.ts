@@ -67,7 +67,7 @@ export function fallbackPortfolioAnswer(question: string) {
   }
 
   if (q.includes("experience") || q.includes("pengalaman") || q.includes("kerja")) {
-    return `Yahya has around five years of experience. Recent roles include Backend Developer at PT Netpolitan from Nov 2025 to Present, Backend Developer/Data Engineer at Delman.io from May 2025 to Nov 2025, Django Developer at PT Netpolitan from May 2024 to May 2025, Web Developer at Radya Digital, Software Engineer at PT Ciheul Technologies, NLP Engineer at NLP LCI, Mobile Developer at SCCIC ITB/Indihealth, and Web Developer at Bio Farma.`;
+    return `Yahya has around five years of experience. Recent roles include Backend Developer at PT Netpolitan from Nov 2025 to Present, Backend Developer/Data Engineer at Delman.io from May 2025 to Nov 2025, Django Developer at PT Netpolitan from May 2024 to May 2025 building and maintaining LMS platforms, Web Developer at Radya Digital, Software Engineer at PT Ciheul Technologies, NLP Engineer at NLP LCI, Mobile Developer at SCCIC ITB/Indihealth, and Web Developer at Bio Farma.`;
   }
 
   if (q.includes("education") || q.includes("pendidikan") || q.includes("kuliah") || q.includes("gpa")) {

@@ -77,14 +77,14 @@ export function ProjectExplorer({ projects }: ProjectExplorerProps) {
           <input
             aria-label="Search projects by title, company, role, or technology"
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Try Django, chatbot, Docker..."
+            placeholder="Django, chatbot, Docker..."
             type="search"
             value={query}
           />
         </label>
       </div>
 
-      <p className="project-result-count">
+      <p className="project-result-count" role="status" aria-live="polite">
         Showing {filteredProjects.length} of {projects.length} projects
         {activeCategory !== ALL_CATEGORIES ? ` in ${activeCategory}` : ""}
         {query.trim() ? ` matching “${query.trim()}”` : ""}.
@@ -94,9 +94,9 @@ export function ProjectExplorer({ projects }: ProjectExplorerProps) {
         <div className="projects-grid">
           {filteredProjects.map((project, index) => (
             <article
-              className="project-card reveal-card"
+              className="project-card"
               key={`${project.title}-${project.period}`}
-              style={{ "--reveal-delay": `${Math.min(index, 8) * 55}ms` } as CSSProperties}
+              style={{ "--reveal-delay": `${Math.min(index, 8) * 35}ms` } as CSSProperties}
             >
               <div className="project-card-top">
                 <span>{project.category}</span>
@@ -105,12 +105,10 @@ export function ProjectExplorer({ projects }: ProjectExplorerProps) {
               <h3>{project.title}</h3>
               {project.company ? <p className="company">{project.company}</p> : null}
               {project.role ? <p className="role">{project.role}</p> : null}
-              <p>{project.summary}</p>
-              <div className="chip-row">
-                {project.tech.slice(0, 8).map((tech) => (
-                  <span className="chip" key={tech}>
-                    {tech}
-                  </span>
+              <p className="project-summary">{project.summary}</p>
+              <div className="chip-row" aria-label={`${project.title} technologies`}>
+                {project.tech.slice(0, 6).map((tech) => (
+                  <span className="chip" key={tech}>{tech}</span>
                 ))}
               </div>
             </article>

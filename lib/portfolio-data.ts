@@ -70,11 +70,15 @@ export const projects: Project[] = [
       "AI Assistant",
       "Notebook",
       "XGBoost",
-      "PDF Export"
+      "PDF Export",
+      "Go",
+      "Python",
+      "Next.js",
+      "PostgreSQL"
     ],
     category: "Data",
     summary:
-      "Built a personal data warehouse analytics workspace for Netflix film and rating data. The system includes CSV source nodes, join pipelines, dashboard creation, AI-assisted widget generation, analytics dashboards, notebook-based XGBoost experimentation, and PDF export for reporting."
+      "Built a personal data warehouse analytics workspace for Netflix film and rating data. The system is built with Go for high-performance API endpoint processing, Python for its extensive data science and machine learning library ecosystem, Next.js as the modern frontend framework, and PostgreSQL as the underlying relational database. The system includes CSV source nodes, join pipelines, dashboard creation, AI-assisted widget generation, analytics dashboards, notebook-based XGBoost experimentation, and PDF export for reporting."
   },
   {
     title: "SAM LCM / PTEN",

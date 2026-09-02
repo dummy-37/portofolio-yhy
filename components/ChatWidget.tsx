@@ -13,7 +13,7 @@ type Message = {
 function AssistantOrb({ size = "default" }: { size?: "default" | "small" }) {
   return (
     <span className={`assistant-orb assistant-orb--${size}`} aria-hidden="true">
-      <svg viewBox="0 0 32 32" role="img" focusable="false">
+      <svg viewBox="0 0 32 32" focusable="false">
         <path
           d="M7.5 8.5h17a3.5 3.5 0 0 1 3.5 3.5v7a3.5 3.5 0 0 1-3.5 3.5h-7.1l-5.15 3.3a.8.8 0 0 1-1.23-.67V22.5H7.5A3.5 3.5 0 0 1 4 19v-7a3.5 3.5 0 0 1 3.5-3.5Z"
           fill="none"
@@ -31,8 +31,7 @@ export function ChatWidget() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content:
-        "Hi, I can help answer questions about Yahya's projects, experience, skills, and portfolio."
+      content: "Hi, I can help answer questions about Yahya's projects, experience, skills, and portfolio."
     }
   ]);
   const [input, setInput] = useState("");
@@ -88,8 +87,7 @@ export function ChatWidget() {
         ...current,
         {
           role: "assistant",
-          content:
-            error instanceof Error ? `Chatbot error: ${error.message}` : "Chatbot error: something went wrong."
+          content: error instanceof Error ? `Chatbot error: ${error.message}` : "Chatbot error: something went wrong."
         }
       ]);
     } finally {
@@ -105,67 +103,46 @@ export function ChatWidget() {
   return (
     <div className="floating-assistant">
       {isOpen ? (
-        <aside className="chat-panel" aria-label="Portfolio chatbot">
+        <aside className="chat-panel" aria-labelledby="chat-title">
           <div className="chat-header">
             <div className="chat-title-row">
               <AssistantOrb size="small" />
               <div>
-                <h2>Portfolio Assistant</h2>
+                <h2 id="chat-title">Portfolio Assistant</h2>
                 <small>Online</small>
               </div>
             </div>
-            <button
-              className="chat-close"
-              type="button"
-              onClick={() => setIsOpen(false)}
-              aria-label="Close chatbot"
-            >
-              ×
-            </button>
+            <button className="chat-close" type="button" onClick={() => setIsOpen(false)} aria-label="Close chatbot">×</button>
           </div>
 
           <div className="chat-messages" aria-live="polite">
             {messages.map((message, index) => (
               <div className={`chat-message ${message.role}`} key={`${message.role}-${index}`}>
                 <p>{message.content}</p>
-                {message.provider ? (
-                  <small>
-                    {message.provider}
-                    {message.sources?.length ? ` · ${message.sources.join(", ")}` : ""}
-                  </small>
-                ) : null}
+                {message.provider ? <small>{message.provider}{message.sources?.length ? ` · ${message.sources.join(", ")}` : ""}</small> : null}
               </div>
             ))}
-            {isLoading ? (
-              <div className="chat-message assistant loading-message">
-                <p>Reading portfolio context...</p>
-              </div>
-            ) : null}
+            {isLoading ? <div className="chat-message assistant loading-message"><p>Reading portfolio context...</p></div> : null}
             <div ref={messageEndRef} />
           </div>
 
           <form className="chat-form" onSubmit={handleSubmit}>
+            <label className="sr-only" htmlFor="portfolio-chat-input">Ask portfolio assistant</label>
             <input
+              id="portfolio-chat-input"
               ref={inputRef}
               value={input}
               onChange={(event) => setInput(event.target.value)}
-              placeholder="Type your question..."
+              placeholder="Ask about the portfolio"
               aria-label="Ask portfolio assistant"
             />
             <button type="submit" disabled={isLoading || !input.trim()} aria-label="Send question">
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path
-                  d="M4.5 19.5 20 12 4.5 4.5l2.2 6.15L14 12l-7.3 1.35L4.5 19.5Z"
-                  fill="currentColor"
-                />
-              </svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.5 19.5 20 12 4.5 4.5l2.2 6.15L14 12l-7.3 1.35L4.5 19.5Z" fill="currentColor" /></svg>
             </button>
           </form>
         </aside>
       ) : (
-        <div className="chat-tooltip" role="status">
-          Ask about my portfolio
-        </div>
+        <div className="chat-tooltip" role="status">Ask about my portfolio</div>
       )}
 
       <button

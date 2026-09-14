@@ -1,3 +1,5 @@
+import Image from "next/image";
+import portrait from "@/public/profile/yahya-firdaus.png";
 import { profile } from "@/lib/portfolio-data";
 
 export function Hero() {
@@ -19,10 +21,11 @@ export function Hero() {
 
       <figure className="hero-portrait">
         <div className="portrait-frame">
-          <img
-            src="/profile/yahya-firdaus.png"
+          <Image
+            src={portrait}
             alt="Yahya Firdaus portrait"
-            loading="lazy"
+            priority
+            sizes="(max-width: 640px) 80vw, (max-width: 960px) 300px, 420px"
             decoding="async"
           />
         </div>

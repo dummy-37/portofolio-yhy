@@ -1,3 +1,12 @@
+import Image from "next/image";
+import screenshot0 from "@/public/projects/data-warehouse-01-login-20260908.png";
+import screenshot1 from "@/public/projects/data-warehouse-02-workspaces-20260908.png";
+import screenshot2 from "@/public/projects/data-warehouse-03-pipeline-20260908.png";
+import screenshot3 from "@/public/projects/data-warehouse-04-dictionary-20260908.png";
+import screenshot4 from "@/public/projects/data-warehouse-05-dashboard-20260908.png";
+import screenshot5 from "@/public/projects/data-warehouse-06-dashboard-editor-20260908.png";
+import screenshot6 from "@/public/projects/data-warehouse-07-consumer-20260908.png";
+import screenshot7 from "@/public/projects/data-warehouse-08-admin-20260908.png";
 import { Tooltip } from "@/components/Tooltip";
 
 const capabilities = [
@@ -15,18 +24,74 @@ const capabilities = [
   }
 ];
 
-const gallery = [
+const screenshots = [
   {
-    src: "/projects/data-warehouse-workspace.webp",
-    alt: "Data Warehouse AI Workspace pipeline canvas",
-    label: "Pipeline workspace"
+    src: "/projects/data-warehouse-01-login-20260908.png",
+    image: screenshot0,
+    alt: "Axentra Data workspace login page in dark mode",
+    label: "Workspace login",
+    width: 3408,
+    height: 1770
   },
   {
-    src: "/projects/data-warehouse-notebook.webp",
-    alt: "Notebook lab for Netflix rating analysis",
-    label: "Notebook lab"
+    src: "/projects/data-warehouse-02-workspaces-20260908.png",
+    image: screenshot1,
+    alt: "Workspace management page with the Data CST project",
+    label: "Workspace management",
+    width: 3398,
+    height: 1762
+  },
+  {
+    src: "/projects/data-warehouse-03-pipeline-20260908.png",
+    image: screenshot2,
+    alt: "Data CST pipeline with the DB_Allianz source, three SQL nodes, and the Egi assistant",
+    label: "Pipeline workspace & assistant",
+    width: 3412,
+    height: 1782
+  },
+  {
+    src: "/projects/data-warehouse-04-dictionary-20260908.png",
+    image: screenshot3,
+    alt: "Data Dictionary showing node metadata, columns, and parent-child relationships",
+    label: "Data Dictionary",
+    width: 3396,
+    height: 1776
+  },
+  {
+    src: "/projects/data-warehouse-05-dashboard-20260908.png",
+    image: screenshot4,
+    alt: "Allianz Learning Dashboard with date filters, monthly learning duration, and course participation tables",
+    label: "Learning analytics dashboard",
+    width: 3402,
+    height: 1768
+  },
+  {
+    src: "/projects/data-warehouse-06-dashboard-editor-20260908.png",
+    image: screenshot5,
+    alt: "Dashboard editor with chart widgets, layout controls, and data settings",
+    label: "Dashboard editor",
+    width: 3398,
+    height: 1770
+  },
+  {
+    src: "/projects/data-warehouse-07-consumer-20260908.png",
+    image: screenshot6,
+    alt: "Data consumer workspace browsing monthly learning duration with search, filters, and export controls",
+    label: "Data consumer workspace",
+    width: 3402,
+    height: 1776
+  },
+  {
+    src: "/projects/data-warehouse-08-admin-20260908.png",
+    image: screenshot7,
+    alt: "Administration overview with users, projects, dashboards, storage, and operational metrics",
+    label: "Administration overview",
+    width: 3406,
+    height: 1778
   }
 ];
+
+const [cover, ...gallery] = screenshots;
 
 export function FeaturedDataWarehouse() {
   return (
@@ -39,8 +104,10 @@ export function FeaturedDataWarehouse() {
 
       <div className="featured-card">
         <figure className="featured-main-image">
-          <img src="/projects/data-warehouse-ai-dashboard.webp" alt="AI dashboard builder preview" />
-          <figcaption>AI-assisted analytics workspace</figcaption>
+          <a href={cover.src} target="_blank" rel="noopener noreferrer" aria-label={`View ${cover.label} screenshot at full size`}>
+            <Image src={cover.image} sizes="(max-width: 700px) 100vw, 60vw" alt={cover.alt} width={cover.width} height={cover.height} loading="lazy" decoding="async" />
+          </a>
+          <figcaption>{cover.label}</figcaption>
         </figure>
 
         <div className="featured-content">
@@ -82,7 +149,9 @@ export function FeaturedDataWarehouse() {
       <div className="featured-gallery" aria-label="Additional project screenshots">
         {gallery.map((item) => (
           <figure key={item.src}>
-            <img src={item.src} alt={item.alt} />
+            <a href={item.src} target="_blank" rel="noopener noreferrer" aria-label={`View ${item.label} screenshot at full size`}>
+              <Image src={item.image} sizes="(max-width: 700px) 100vw, 50vw" alt={item.alt} width={item.width} height={item.height} loading="lazy" decoding="async" />
+            </a>
             <figcaption>{item.label}</figcaption>
           </figure>
         ))}

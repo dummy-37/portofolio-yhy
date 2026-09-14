@@ -22,6 +22,10 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   output: "standalone",
   poweredByHeader: false,
+  images: {
+    formats: ["image/webp"],
+    minimumCacheTTL: 86400,
+  },
   reactStrictMode: true,
   async headers() {
     return [

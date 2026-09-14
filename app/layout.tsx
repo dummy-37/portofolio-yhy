@@ -14,12 +14,7 @@ export const metadata: Metadata = {
   description:
     "Portfolio website for Yahya Firdaus, a backend-focused software engineer with experience in Django, Flask, PostgreSQL, chatbot development, NLP, and data engineering.",
   authors: [{ name: "Yahya Firdaus" }],
-  openGraph: {
-    title: "Yahya Firdaus | Software Engineer Portfolio",
-    description:
-      "Backend developer portfolio with Qwen LoRA-ready chatbot for resume and project Q&A.",
-    type: "website"
-  }
+  metadataBase: new URL("https://portofolio.axentraproject.site"),
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

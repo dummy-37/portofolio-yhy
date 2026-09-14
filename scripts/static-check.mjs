@@ -13,10 +13,14 @@ const requiredFiles = [
   "components/Tooltip.tsx",
   "components/ParticleBackground.tsx",
   "public/resume/yahya-firdaus-resume.pdf",
-  "public/projects/data-warehouse-workspace.webp",
-  "public/projects/data-warehouse-ai-dashboard.webp",
-  "public/projects/data-warehouse-polished-dashboard.webp",
-  "public/projects/data-warehouse-notebook.webp"
+  "public/projects/data-warehouse-01-login-20260908.png",
+  "public/projects/data-warehouse-02-workspaces-20260908.png",
+  "public/projects/data-warehouse-03-pipeline-20260908.png",
+  "public/projects/data-warehouse-04-dictionary-20260908.png",
+  "public/projects/data-warehouse-05-dashboard-20260908.png",
+  "public/projects/data-warehouse-06-dashboard-editor-20260908.png",
+  "public/projects/data-warehouse-07-consumer-20260908.png",
+  "public/projects/data-warehouse-08-admin-20260908.png"
 ];
 
 const requiredCssClasses = [
@@ -40,6 +44,14 @@ if (missingFiles.length) {
 }
 
 const css = readFileSync("app/globals.css", "utf8");
+const featured = readFileSync("components/FeaturedDataWarehouse.tsx", "utf8");
+const screenshotPaths = [...featured.matchAll(/src: "(\/projects\/[^\"]+)"/g)].map((match) => `public${match[1]}`);
+const expectedScreenshots = requiredFiles.filter((file) => file.startsWith("public/projects/"));
+if (JSON.stringify(screenshotPaths) !== JSON.stringify(expectedScreenshots)) {
+  console.error("Featured Data Warehouse must display the eight current screenshots in order.");
+  process.exit(1);
+}
+
 const missingClasses = requiredCssClasses.filter((className) => !css.includes(className));
 if (missingClasses.length) {
   console.error("Missing CSS classes:", missingClasses.join(", "));

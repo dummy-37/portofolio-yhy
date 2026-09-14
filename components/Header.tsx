@@ -1,3 +1,5 @@
+import Image from "next/image";
+import portrait from "@/public/profile/yahya-firdaus.png";
 import { profile } from "@/lib/portfolio-data";
 
 const navItems = [
@@ -13,7 +15,7 @@ export function Header() {
     <header className="site-header">
       <a className="brand" href="#home" aria-label="Back to top">
         <span className="brand-mark">
-          <img src="/profile/yahya-firdaus.png" alt={profile.name} loading="lazy" decoding="async" />
+          <Image src={portrait} alt={profile.name} sizes="40px" decoding="async" />
         </span>
         <span className="brand-copy">
           <strong>{profile.name}</strong>

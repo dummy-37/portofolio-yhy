@@ -34,7 +34,9 @@ export const profile = {
   headline:
     "Backend-focused software engineer who builds reliable web systems, data pipelines, dashboards, chatbot products, NLP features, and AI-assisted analytics workflows.",
   about:
-    "Bachelor of Computer Science from Universitas Pendidikan Indonesia with strong expertise in back-end development. Skilled in PHP, Python, Java, JavaScript, Go, and C#, with experience in Laravel, Echo, Next.js, ASP.NET, Django, and Flask. Interests include NLP, Data Engineering, and Machine Learning."
+    "Bachelor of Computer Science from Universitas Pendidikan Indonesia with strong expertise in back-end development. Skilled in PHP, Python, Java, JavaScript, Go, and C#, with experience in Laravel, Echo, Next.js, ASP.NET, Django, and Flask. Interests include NLP, Data Engineering, and Machine Learning.",
+  learning:
+    "I am also studying large language models (LLMs) and retrieval-augmented generation (RAG), with research into fine-tuning Qwen 7B using Low-Rank Adaptation (LoRA)."
 };
 
 export const stats = [
@@ -54,6 +56,7 @@ export const skills: Skill[] = [
   { name: "Kotlin", tools: ["Android Studio"] },
   { name: "Chatbot", tools: ["platform.kata.ai", "Qiscus"] },
   { name: "NLP", tools: ["Speech Recognition", "NLU", "Text-to-Speech", "CMUSphinx"] },
+  { name: "LLM research", tools: ["RAG", "Qwen 7B", "LoRA fine-tuning"] },
   { name: "Database", tools: ["PostgreSQL", "SQL Server", "MySQL", "MongoDB", "Stored Procedures"] },
   { name: "Data Engineering", tools: ["Data Warehouse", "Tableau", "GCP"] },
   { name: "DevOps", tools: ["Docker", "Kubernetes", "GCP"] }
@@ -70,6 +73,7 @@ export const projects: Project[] = [
       "Dashboard Builder",
       "SQL Workspace",
       "AI Assistant",
+      "RAG",
       "Notebook",
       "XGBoost",
       "PDF Export",
@@ -80,7 +84,7 @@ export const projects: Project[] = [
     ],
     category: "Data",
     summary:
-      "Built a personal data warehouse analytics workspace for Netflix film and rating data. The system is built with Go for high-performance API endpoint processing, Python for its extensive data science and machine learning library ecosystem, Next.js as the modern frontend framework, and PostgreSQL as the underlying relational database. The system includes CSV source nodes, join pipelines, dashboard creation, AI-assisted widget generation, analytics dashboards, notebook-based XGBoost experimentation, and PDF export for reporting."
+      "Built a personal data warehouse analytics workspace for Netflix film and rating data. The system is built with Go for high-performance API endpoint processing, Python for its extensive data science and machine learning library ecosystem, Next.js as the modern frontend framework, and PostgreSQL as the underlying relational database. The system includes CSV source nodes, join pipelines, dashboard creation, AI-assisted widget generation, analytics dashboards, notebook-based XGBoost experimentation, and PDF export for reporting. Its chat assistant uses retrieval-augmented generation (RAG) to ground responses in a curated knowledge base and relevant project context."
   },
   {
     title: "SAM LCM / PTEN",

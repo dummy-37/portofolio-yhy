@@ -11,7 +11,7 @@ const capabilityGroups = [
   {
     number: "02",
     title: "Data, AI & delivery",
-    detail: "Dashboard workflows, chatbot and NLP features, notebook experimentation, data engineering, and production delivery.",
+    detail: "Dashboard workflows, RAG-based assistants, NLP features, notebook experimentation, data engineering, and production delivery. Ongoing LLM learning and research into Qwen 7B fine-tuning with LoRA.",
     items: skills.slice(7)
   }
 ];
@@ -28,6 +28,7 @@ export function Skills() {
         <div className="about-copy">
           <p className="lead-copy">{profile.headline}</p>
           <p>{profile.about}</p>
+          <p>{profile.learning}</p>
         </div>
 
         <div className="capability-list" aria-label="Core capabilities">

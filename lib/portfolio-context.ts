@@ -25,6 +25,7 @@ LinkedIn: ${profile.linkedin}
 Resume: ${profile.resumeUrl}
 Headline: ${profile.headline}
 About: ${profile.about}
+Learning and research: ${profile.learning}
 
 STATS
 ${stats.map((item) => `- ${item.label}: ${item.value}`).join("\n")}
@@ -48,6 +49,10 @@ ${organisations.map((item) => `- ${item}`).join("\n")}
 
 export function fallbackPortfolioAnswer(question: string) {
   const q = question.toLowerCase();
+
+  if (/\b(rag|llm|llms|qwen|lora|fine[- ]?tuning)\b/.test(q)) {
+    return "Yahya is studying large language models (LLMs) and retrieval-augmented generation (RAG). His Data Warehouse AI Workspace includes a RAG-based chat assistant grounded in a curated knowledge base and project context. He has also researched fine-tuning Qwen 7B using Low-Rank Adaptation (LoRA).";
+  }
 
   if (q.includes("email") || q.includes("contact") || q.includes("kontak") || q.includes("hubungi")) {
     return `Yahya Firdaus can be contacted through ${profile.email}. LinkedIn: ${profile.linkedin}.`;
@@ -75,7 +80,7 @@ export function fallbackPortfolioAnswer(question: string) {
   }
 
   if (q.includes("qwen") || q.includes("lora") || q.includes("model")) {
-    return `This chatbot is prepared for a Qwen model that has been adapted with LoRA. Add the deployed model endpoint to QWEN_API_URL and the model name to QWEN_MODEL in the .env file.`;
+    return "Yahya has researched fine-tuning Qwen 7B with LoRA and continues to study LLMs and RAG. His portfolio presents this as learning and research experience.";
   }
 
   return `I can answer questions about Yahya Firdaus' profile, skills, projects, experience, education, and contact information. Ask about his backend experience, Django projects, chatbot projects, NLP work, data engineering, or resume details.`;

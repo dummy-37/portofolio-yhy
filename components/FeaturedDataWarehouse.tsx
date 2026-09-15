@@ -115,12 +115,16 @@ export function FeaturedDataWarehouse() {
             <h3>From raw data to a decision-ready view.</h3>
             <Tooltip
               label="Project detail"
-              content="This personal project brings together a source-node pipeline, join process, dashboard builder, chatbot assistant, notebook experiment, and PDF export."
+              content="This personal project brings together a source-node pipeline, join process, dashboard builder, RAG-based chat assistant, notebook experiment, and PDF export. The assistant retrieves relevant knowledge and project context to ground its responses."
             />
           </div>
           <p className="featured-description">
             A personal data warehouse product built around a practical flow: prepare the source, shape the pipeline,
             explore the result, then communicate it.
+          </p>
+          <p className="featured-description">
+            The chat assistant uses retrieval-augmented generation (RAG), drawing on a curated
+            knowledge base and project context to provide relevant answers about the data.
           </p>
 
           <div className="featured-capabilities">
@@ -141,7 +145,7 @@ export function FeaturedDataWarehouse() {
             <span>Next.js</span>
             <span>PostgreSQL</span>
             <span>XGBoost</span>
-            <span>Qwen LoRA</span>
+            <span>RAG</span>
           </div>
         </div>
       </div>

@@ -115,3 +115,6 @@ key.txt
 *.safetensors
 *.jsonl
 TRIVY-*.json
+
+# Additional local generated files
+/node_modules
